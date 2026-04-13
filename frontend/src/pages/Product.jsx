@@ -29,21 +29,27 @@ const Product = () => {
       {/* ---------product data---------------- */}
       <div className="flex gap-12 sm:gap-12 flex-col sm:flex-row">
         {/* --------product images--------- */}
-        <div className="flex flex-1 gap-3">
-          
-          <div className="flex sm:flex-col overflow-x-auto sm:overflow-y-scroll justify-between sm:justify-normal sm:w-[18.7%] w-full">
-            {productData.image.map((item, index) => (
-              <img
-                onClick={() => setImage(item)} className="w-[24%] sm:w-full sm:mb-3 flex-shrink-0 cursor-pointer" src={item}key={index}alt=""
-              />
-            ))}
-          </div>
+        <div className="flex flex-col sm:flex-row gap-4">
 
-          {/*------------- main image------------ */}
-          <div className="w-full sm:w-[80%]">
-            <img className="w-full h-auto" src={image} alt="" />
-          </div>
-        </div>
+  {/* Main image */}
+  <div className="w-full sm:w-[80%]">
+    <img className="w-full h-auto" src={image} alt="" />
+  </div>
+
+  {/* Thumbnails */}
+  <div className="flex gap-2 overflow-x-auto sm:flex-col sm:w-[18.7%] w-full">
+    {productData.image.map((item, index) => (
+      <img
+        key={index}
+        src={item}
+        alt=""
+        onClick={() => setImage(item)}
+        className="w-[22%] sm:w-full flex-shrink-0 cursor-pointer border"
+      />
+    ))}
+  </div>
+
+</div>
 
         {/*----------- product information--------- */}
 <div className="flex-1">
