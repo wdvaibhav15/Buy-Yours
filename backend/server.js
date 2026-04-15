@@ -4,6 +4,7 @@ import "dotenv/config";
 import connectDB from "./config/mongodb.js";
 import connectCloudinary from "./config/cloudnary.js";
 import userRouter from "./routes/userRoute.js";
+import productRouter from "./routes/productRoute.js";
 
 // APP config
 const app = express();
@@ -21,6 +22,8 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/user",userRouter);
+
+app.use("/api/product",productRouter);
 
 
 
