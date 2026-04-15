@@ -2,41 +2,26 @@ import express from "express";
 import cors from "cors";
 import "dotenv/config";
 import connectDB from "./config/mongodb.js";
-import connectCloudinary from "./config/cloudinary.js";
-import userRouter from "./routes/userRoute.js";
+import connectCloudinary from "./config/cloudnary.js";
 
-// API config
+// APP config
 const app = express();
 const port = process.env.PORT || 3000;
 connectDB();
 connectCloudinary();
 
-// middlewares
+//middlewares
 app.use(cors());
 app.use(express.json());
 
-//API endpoints
-app.use("/api/user", userRouter);
-
-
+//routes / api endpoints
 app.get("/", (req, res) => {
-  res.send("API WORKING");
+  res.send("API working");
 });
 
 
 
-
-
-
-
-
-
-
-const startServer = async () => {
-  await connectDB();
-  app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-  });
-};
-
-startServer();
+//server
+app.listen(port, () => {
+  console.log(`listening on port ${port}`);
+});
