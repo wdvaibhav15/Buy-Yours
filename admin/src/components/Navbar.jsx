@@ -1,11 +1,11 @@
 import React from "react";
 import { assets } from "../assets/assets";
 
-const Navbar = () => {
+const Navbar = ({setToken}) => {
   return (
     <div className="flex items-center justify-between  px-[6%] ">
       <img src={assets.logo} className='w-35 cursor-pointer' alt="" />
-      <button className="bg-gray-600 text-white px-5 py-2 sm:px-7 sm:py-2 rounded-full text-xs sm:text-sm cursor-pointer">Logout</button>
+      <button onClick={()=>setToken("")} className="bg-gray-600 text-white px-5 py-2 sm:px-7 sm:py-2 rounded-full text-xs sm:text-sm cursor-pointer">Logout</button>
     </div>
   );
 };

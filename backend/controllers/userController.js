@@ -35,6 +35,7 @@ const loginUser = async(req, res) => {
 // Route for user registration
 const registerUser = async(req, res) => {
     try {
+        
         const {name , email , password} = req.body;
         // checking user already exist or not 
         const exists = await userModel.findOne({email});
