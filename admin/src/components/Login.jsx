@@ -13,9 +13,9 @@ const Login = ({setToken}) => {
             e.preventDefault();
            
             const response = await axios.post(BackendUrl + "/api/user/admin", {
-  email,
-  password,
-});
+                  email,
+                  password,
+                });
             if(response.data.success){
               setToken(response.data.token);
               } else {
@@ -65,7 +65,7 @@ const Login = ({setToken}) => {
 
       <button
         onClick={onSubmitHandler}
-        className="w-full bg-gray-700 text-white py-3 rounded-lg hover:bg-gray-800 transition duration-300"
+        className="w-full bg-gray-700 text-white py-3 rounded-lg hover:bg-gray-800 transition duration-300 cursor-pointer"
         type="submit"
       >
         Login
