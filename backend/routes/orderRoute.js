@@ -1,62 +1,25 @@
-// import express from "express";
-// import {
-//   placeOrder,
-//   placeOrderStripe,
-//   placeOrderRazorpay,
-//   userOrders,
-//   updateStatus,
-//   allOrders,
-//   verifyStripe
-// } from "../controllers/orderController.js";
-// import adminAuth from "../middleware/adminAuth.js";
-// import authUser from "../middleware/auth.js";
 
-// const orderRouter = express.Router();
-
-// // admin features
-// orderRouter.post("/list", adminAuth, allOrders);
-// orderRouter.post("/status", adminAuth, updateStatus);
-
-// // payment features
-// orderRouter.post("/place", authUser, placeOrder);
-// orderRouter.post("/stripe", authUser, placeOrderStripe);
-// orderRouter.post("/razorpay", authUser, placeOrderRazorpay);
-
-// // user features
-// orderRouter.post("/userorders", authUser, userOrders);
-
-// // verify  payment
-// orderRouter.post("/verifyStripe", authUser, verifyStripe)
-
-// export default orderRouter;
 import express from "express";
 import {
   placeOrder,
   placeOrderStripe,
+  verifyStripe,
   placeOrderRazorpay,
+  verifyRazorpay,
   userOrders,
-  updateStatus,
-  allOrders,
-  verifyStripe
 } from "../controllers/orderController.js";
-import adminAuth from "../middleware/adminAuth.js";
+
 import authUser from "../middleware/auth.js";
 
-const orderRouter = express.Router();
+const router = express.Router();
 
-// admin features
-orderRouter.post("/list", adminAuth, allOrders);
-orderRouter.post("/status", adminAuth, updateStatus);
+router.post("/place", authUser, placeOrder);
+router.post("/stripe", authUser, placeOrderStripe);
+router.post("/verifyStripe", authUser, verifyStripe);
 
-// payment features
-orderRouter.post("/place", authUser, placeOrder);
-orderRouter.post("/stripe", authUser, placeOrderStripe);
-orderRouter.post("/razorpay", authUser, placeOrderRazorpay);
+router.post("/razorpay", authUser, placeOrderRazorpay);
+router.post("/verifyRazorpay", authUser, verifyRazorpay);
 
-// user features
-orderRouter.post("/userorders", authUser, userOrders);
+router.post("/userorders", authUser, userOrders);
 
-// verify payment
-orderRouter.post("/verifyStripe", authUser, verifyStripe);
-
-export default orderRouter;
+export default router;
